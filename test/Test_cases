@@ -1,0 +1,31 @@
+1. Deployement
+    - check owner 
+    - check votCount to be zero
+
+2. Candidate registration
+    - check for puase protection
+        * add candidate while paused
+        * pause, unpause contract by guest
+        * pause, unpause contract by owner
+    - check add candidate access protection
+        * add candidate by guest
+        * add candidate by owner
+        * add more candidates by owner
+        * check candidate count
+        
+3. Votting by votters
+    - check for puase protection
+        * add new vot while paused
+    - Check for vot function & vots count
+        * check for vot count if 0
+        * add multiple new vots and check vot count
+        * check of votter can't revote
+        * try to vote non existing candidate
+        
+4. Vot closure and results
+    - check closure protection
+        * add votes while vote is closed
+        * try reversing vote closure by anyone
+    - check for final result
+        * check final reuslt before votting closed
+        * check final reuslt after votting closed
