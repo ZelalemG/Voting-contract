@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.4+commit.c7e474f2"
+		"version": "0.8.9+commit.e5eed63a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -27,6 +27,25 @@
 					}
 				],
 				"name": "CandidateAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "count",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "NewVotAdded",
 				"type": "event"
 			},
 			{
@@ -96,6 +115,25 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_candAddress",
+						"type": "address"
+					}
+				],
+				"name": "candidateExists",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -118,12 +156,44 @@
 			},
 			{
 				"inputs": [],
+				"name": "getCandidatesCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getVotCount",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_votterAddress",
+						"type": "address"
+					}
+				],
+				"name": "notVottedBefore",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -188,6 +258,19 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_candAddress",
+						"type": "address"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -218,7 +301,7 @@
 		"compilationTarget": {
 			"contracts/MyPolls.sol": "MyPolls"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -255,11 +338,11 @@
 			]
 		},
 		"contracts/MyPolls.sol": {
-			"keccak256": "0x3266999bafdf6e840dccfaa505ad39513322ee3bb856ec6e2f6018bc84e565f2",
+			"keccak256": "0xec3b4b304a28f4a352159f8d97debbf3f5b2ae4d2553a4410e5e27131f44fa36",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e26caa7f8f3f9c3e7c39761631a7050c1439e3b4ab6b777f5fc3d1ce91918895",
-				"dweb:/ipfs/QmXJqFj28DVm2snepni7oNppEXEGkN7fKKr6WLJyLR4ZfM"
+				"bzz-raw://254479e920e105495b23473954816a2878953056597211050d225d508e246d96",
+				"dweb:/ipfs/QmauTk1vz3R4U5aeHtzQJJCcbdEUxEgNZTEnmbxTkQGNZs"
 			]
 		},
 		"hardhat/console.sol": {

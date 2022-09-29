@@ -22,17 +22,17 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const Token = await ethers.getContractFactory("Token");
-  const token = await Token.deploy();
-  await token.deployed();
+  const PollsContract = await ethers.getContractFactory("MyPolls");
+  const contractObj = await PollsContract.deploy();
+  await contractObj.deployed();
 
-  console.log("Token address:", token.address);
+  console.log("Contract address:", contractObj.address);
 
   // We also save the contract's artifacts and address in the frontend directory
-  saveFrontendFiles(token);
+  saveFrontendFiles(contractObj);
 }
 
-function saveFrontendFiles(token) {
+function saveFrontendFiles(_contractObj) {
   const fs = require("fs");
   const contractsDir = path.join(__dirname, "..", "frontend", "src", "contracts");
 
@@ -42,14 +42,14 @@ function saveFrontendFiles(token) {
 
   fs.writeFileSync(
     path.join(contractsDir, "contract-address.json"),
-    JSON.stringify({ Token: token.address }, undefined, 2)
+    JSON.stringify({ MyPolls: _contractObj.address }, undefined, 2)
   );
 
-  const TokenArtifact = artifacts.readArtifactSync("Token");
+  const PollsArtifact = artifacts.readArtifactSync("MyPolls");
 
   fs.writeFileSync(
-    path.join(contractsDir, "Token.json"),
-    JSON.stringify(TokenArtifact, null, 2)
+    path.join(contractsDir, "MyPolls.json"),
+    JSON.stringify(PollsArtifact, null, 2)
   );
 }
 

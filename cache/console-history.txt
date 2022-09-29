@@ -1,0 +1,12 @@
+await contractObj.vote('0x932f6Bfd7CE286CcFd627b1549E0Ff97CB1151AB');
+await contractObj.addCandidate('0x932f6Bfd7CE286CcFd627b1549E0Ff97CB1151AB', 'Zillo Man');
+await contractObj..addCandidate('0x932f6Bfd7CE286CcFd627b1549E0Ff97CB1151AB', 'Zillo Man');
+await contract.addCandidate('0x932f6Bfd7CE286CcFd627b1549E0Ff97CB1151AB', 'Zillo Man');
+await contractObj.unpause();
+await contractObj.owner();
+await pollingObj.owner();
+const contractObj = await PollsContract.attach('0xf5704aBAAE5C8C4a4c945c73f4e781e15FCC3025');
+const PollsContract = await ethers.getContractFactory("MyPolls");
+(await ethers.provider.getBalance(this)).toString()
+(await ethers.provider.getBalance(accounts[0])).toString()
+accounts = await ethers.provider.listAccounts()
